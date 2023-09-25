@@ -1,4 +1,6 @@
-﻿namespace Gladiator.Model.Gladiators
+﻿using System;
+
+namespace Gladiator.Model.Gladiators
 {
     public class Brutal : BaseGladiator
     {
@@ -7,8 +9,11 @@
 
         }
 
-        protected override double HPMultiplier => throw new System.NotImplementedException();
-        protected override double SPMultiplier => throw new System.NotImplementedException();
-        protected override double DEXMultiplier => throw new System.NotImplementedException();
+        protected override double HPMultiplier => 
+            StatisticMultiplierExtensions.GetMultiplierValue(StatisticMultiplier.High);
+        protected override double SPMultiplier =>
+            StatisticMultiplierExtensions.GetMultiplierValue(StatisticMultiplier.High);
+        protected override double DEXMultiplier => 
+            StatisticMultiplierExtensions.GetMultiplierValue(StatisticMultiplier.Low);
     }
 }
